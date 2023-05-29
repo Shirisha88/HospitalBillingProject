@@ -1,0 +1,75 @@
+﻿@model IEnumerable<HospitalBillingProj.Models.Bill>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BillDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ItemName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AmountPaid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Balance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.PatientName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BillDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AmountPaid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Balance)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.PatientName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BillId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BillId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BillId })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    <u>@Html.ActionLink("Home", "Index", "Home")</u>&nbsp;&nbsp;
+    <u>@Html.ActionLink("Patients", "Index", "Patients")</u>&nbsp;&nbsp;
+    <u>@Html.ActionLink("Reports", "Index", "Reports")</u>
+</div>

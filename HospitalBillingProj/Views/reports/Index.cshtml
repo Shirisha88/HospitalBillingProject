@@ -1,0 +1,51 @@
+﻿@model IEnumerable<HospitalBillingProj.Models.report>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.startDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.endDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bill.ItemName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.startDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.endDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bill.ItemName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.reportid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.reportid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.reportid })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    <u>@Html.ActionLink("Home", "Index", "Home")</u>&nbsp;&nbsp;
+    <u>@Html.ActionLink("Patients", "Index", "Patients")</u>&nbsp;&nbsp;
+    <u>@Html.ActionLink("Bills", "Index", "Bills")</u>
+</div>
